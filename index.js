@@ -46,15 +46,13 @@ app.get('/posts', function(req, res) {
 });
 
 // Create a route for our detail page
-app.get('/post/:id', function(req, res) {
+app.get('/posts/:id', function(req, res) {
 	request(`https://api.nytimes.com/svc/archive/v1/2019/3.json?api-key=r8QZbMEAyISGNhszSuglD4akcNUbYeAK`, {json: true}, function (err, requestRes, body){
 		if (err) {
 			// We got an error
 			res.send(err);
 		} else {
             // Render the page using the 'post' view and our body data
-            console.log(body)
-            collection.filterData(body);
 
             // mappen
 
@@ -109,9 +107,6 @@ var collection = {
             }
            
         });
-
-        // collection.data = templateData;
-        template.render(data, storyid)
     },
     filterSubject: function(item) {             
         if (item.name === "subject") {
