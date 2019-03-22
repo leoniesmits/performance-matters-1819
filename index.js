@@ -7,7 +7,7 @@ const app = express()
 
 // Add a config object and define port
 const config = {
-    port: 3000
+    port: 6000
 }
 
 // const router = require('./router/router.js')
@@ -54,7 +54,6 @@ app.get('/posts/:id', function(req, res) {
 		} else {
             // Render the page using the 'post' view and our body data
 
-            // mappen
 
 
 			res.render('post', {
