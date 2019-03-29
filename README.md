@@ -26,14 +26,16 @@ A rendering path is a series of events that make your website appear on a browse
 
 For the CSS, a [critical CSS generator](https://jonassebastianohlsson.com/criticalpathcssgenerator/) can be used. When putting my CSS in the above one, the size is dramatically reduced. Besides that, the user now gets to see something when loading the page, instead of a white page.
 
-Before | After 
+
+
+before | after | 
 -----|-------|--------------
-4652 characters  | 2954 characters
-5 kb | 3kb
+4652 characters | 2954 characters |
+5kb | 3kb | 
 
 #### Minify JS
 
-For JS there's a [generator](https://jscompress.com/) aswell. 
+For JS there's a [generator](https://jscompress.com/) aswell. Unfortunately I'm very much behind, so I don't know how the client side JS should look like on my page. Instead, I picked the JS file form my [browser technologies project](https://github.com/leoniesmits/browser-technologies-1819). 
 
 ## Service worker
 
