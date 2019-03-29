@@ -7,7 +7,7 @@ const app = express()
 
 // Add a config object and define port
 const config = {
-    port: 6000
+    port: 5500
 }
 
 // const router = require('./router/router.js')
@@ -33,13 +33,13 @@ app.get('/posts', function(req, res) {
 			res.send(err);
 		} else {
             // Render the page using the 'posts' view and our body data
-            console.log(body)
             collection.filterData(body);
+            console.log(collection.data)
 
             // mappen
 			res.render('posts', {
 				title: 'Posts', // We use this for the page title, see views/partials/head.ejs
-				postData: body.response.docs
+				postData: collection.data
 			});
 		}
 	});
@@ -53,12 +53,19 @@ app.get('/posts/:id', function(req, res) {
 			res.send(err);
 		} else {
             // Render the page using the 'post' view and our body data
-
-
-
+            // collection.filterData(body)
+            let templateData = null;
+            body.response.docs.forEach((doc) => {
+                if (doc._id === req.params.id) {
+                    templateData = doc;
+                }
+            });
+            console.log('bla', templateData);
+            
+            // console.log(collection.data)
 			res.render('post', {
 				title: `Post ${req.params.id}`, 
-				postData: body
+				post: templateData
 			});
 		}
 	});
@@ -67,12 +74,12 @@ app.get('/posts/:id', function(req, res) {
 var collection = {
     data: [],
     filterData: function(data) {
-        console.log(data)
+        console.log("hi")
 
         var frontPage = data.response.docs.filter(this.filterByPage);
         var emptyPage = frontPage.filter(this.deleteEmpty);
         this.data = emptyPage;
-        collection.mapData(emptyPage);
+        this.mapData(emptyPage);
     },
     filterByPage: function(item) {
         if(item.print_page == "1"){
@@ -87,9 +94,8 @@ var collection = {
         }
     },
     mapData: function(data, storyid){
-        var self = this;
-        collection.data = data.map(function(i) {
-            
+        this.data = data.map(function(i) {
+            // console.log(i.keywords);
             var subjectArray = i.keywords.filter(collection.filterSubject);
             return {
                 snippet: i.snippet,

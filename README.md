@@ -1,54 +1,46 @@
-# Performance Matters @cmda-minor-web · 2018-2019
+# Performance Matters 18-19
 
-In dit vak gaan we de eerder bij de OBA gemaakte client side web applicatie ombouwen naar een server side gerenderde applicatie. Verder gaan we een reeks van optimalisaties doorvoeren om de performance van de applicatie te verbeteren. Uiteindelijk zorgen we ervoor dat de applicatie offline beschikbaar.
+A subject in the minor Web Development provided by CMD Amsterdam.
 
-## Leerdoelen
-- _Je weet het verschil tussen client side en server side rendering en kan server side rendering toepassen_
-- _Je begrijpt hoe de critical render path werkt, en hoe je deze kan optimaliseren voor een betere runtime en/of perceived performance._
-- _Je begrijpt hoe een Service Worker werkt en kan deze in jou applicatie implementeren._
+## My case
 
-[Rubric](https://docs.google.com/spreadsheets/d/e/2PACX-1vTO-pc2UMvpT0pUjt6NJeckc5N9E7QvCxEfVJW1JjuM0m_9MM8ra05J0s6br486Rocz5JVMhAX_C37_/pubhtml?gid=0&single=true)
+Initially, my assignment was to optimalize the performance of my [WAFS](https://github.com/leoniesmits/wafs/tree/master/app/static) project from last year, which can be found live [here](https://leoniesmits.github.io/wafs/app/static/index.html). This app loads in the New York Times API and prints all headline articles from a particular month. 
 
-## Lesprogramma
+## Problems
 
-### Week 1 - Server Side rendering
+I'm currently 2 weeks behind. Maybe even 3. Why? I don't know. Making the app word server side was very hard. Right now, the app won't even start and I can't figure out why. 
 
-Doel: Webpagina's server side renderen
+__That's why I will write in my readme what I would have done, had everything worked as I wanted to.__
 
-[Opdrachten](https://github.com/cmda-minor-web/performance-matters-1819/blob/master/week-1.md)
+## Files
 
-[Slides](...)
+#### Use gzip
 
-### Week 2 - Critical Rendering Path  
+Gzip is a command used to compress files. My page loads in a lot of images, so this would reduce the size by a great amount.
 
-Doel: Critical Rendering path optimaliseren
-[Opdrachten](https://github.com/cmda-minor-web/performance-matters-1819/blob/master/week-2.md)
+All images have the same name as they're printed in the `/posts` page, so I guess using gzip on them would be easy. You can even use gzip on an entire folder with this command: `gzip -r foldername`.
 
-[Slides](...)
+#### Critical CSS 
 
-### Week 3 - Going Offline 
+A rendering path is a series of events that make your website appear on a browser. A critical rendering path is what is absolutely needed to show anything on the browser. In this step, the critical render path is optimized. This makes the load time seconds faster and is the quickest path to faster websites.
 
-Doel: Webpagina's offline beschikbaar stellen
+For the CSS, a [critical CSS generator](https://jonassebastianohlsson.com/criticalpathcssgenerator/) can be used. When putting my CSS in the above one, the size is dramatically reduced. Besides that, the user now gets to see something when loading the page, instead of a white page.
 
-[Opdrachten](https://github.com/cmda-minor-web/performance-matters-1819/blob/master/week-3.md)
+Before | After 
+-----|-------|--------------
+4652 characters  | 2954 characters
+5 kb | 3kb
 
-[Slides](...)
+#### Minify JS
+
+For JS there's a [generator](https://jscompress.com/) aswell. 
+
+## Service worker
 
 
-<!-- Add a link to your live demo in Github Pages 🌐-->
 
-<!-- ☝️ replace this description with a description of your own work -->
 
-<!-- Add a nice image here at the end of the week, showing off your shiny frontend 📸 -->
 
-<!-- Maybe a table of contents here? 📚 -->
 
-<!-- How about a section that describes how to install this project? 🤓 -->
 
-<!-- ...but how does one use this project? What are its features 🤔 -->
 
-<!-- What external data source is featured in your project and what are its properties 🌠 -->
-
-<!-- Maybe a checklist of done stuff and stuff still on your wishlist? ✅ -->
-
-<!-- How about a license here? 📜 (or is it a licence?) 🤷 -->

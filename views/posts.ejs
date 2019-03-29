@@ -9,7 +9,7 @@
 <body> 
     <h1>Posts</h1>
     <% postData.forEach(function(post) { %>
-        <a href="/posts/<%- post._id %>"><%- post.headline.main %></a>
+        <a href="/posts/<%- post.id %>"><%- post.main %></a>
     <% }) %>   
 </body>
 </html>
