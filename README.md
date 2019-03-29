@@ -28,10 +28,10 @@ For the CSS, a [critical CSS generator](https://jonassebastianohlsson.com/critic
 
 
 
-before | after | 
------|-------|--------------
-4652 characters | 2954 characters |
-5kb | 3kb | 
+before | after 
+-----|-------
+4652 characters | 2954 characters
+5kb | 3kb 
 
 #### Minify JS
 
